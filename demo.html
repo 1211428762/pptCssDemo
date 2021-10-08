@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *:focus {
+    outline: none;
+  }
+
+  .focus {
+    width: 100px;
+    height: 100px;
+    margin: 10px 20px;
+    background-color: violet;
+    transition: all .4s;
+    border-radius: 10px;
+  }
+
+  .focus:focus {
+    background-color: deepskyblue;
+    transform: skew(30deg);
+  }
+
+  .focus:active {
+    background-color: lightblue;
+    transform: rotate(360deg);
+  }
+
+  .unfold-wrap {
+    width: 200px;
+    transition: all 1s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    text-align: center;
+    color: white;
+    display: flex;
+
+  }
+
+  .unfold {
+    width: 30px;
+    height: 60px;
+    background: deepskyblue;
+    order: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .unfold::before {
+    content: "展开";
+  }
+
+  .unfold:focus::before {
+    content: "收起";
+  }
+
+  .unfold:focus+.content {
+    margin-left: 0;
+  }
+
+
+  .content {
+    margin-left: -100px;
+    width: 100px;
+    height: 100px;
+    background: olivedrab;
+    line-height: 100px;
+    transition: all 1s;
+  }
+</style>
+
+<body>
+  <div class="focus" tabindex="-1"></div>
+  <section class="unfold-wrap">
+    <div class="unfold" tabindex="-1"></div>
+    <div class="content">content</div>
+  </section>
+</body>
+
+</html>
