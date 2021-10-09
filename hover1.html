@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .test {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(60deg, plum, deepskyblue);
+    display: inline-block;
+    margin: 20px;
+    transition: all .4s;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .origin:hover {
+    margin-left: 60px;
+  }
+
+
+
+  .other {
+    transition: all .4s;
+    background: linear-gradient(30deg, deepskyblue, lightgreen);
+  }
+
+  .other:hover {
+    transform: translate(40px, 0);
+  }
+</style>
+
+<body>
+  <div class="test origin">margin </div>
+  <div class="test origin"> </div>
+  <div class="test origin"> </div>
+  <hr>
+  <div class="test other"> transform </div>
+  <div class="test other"> </div>
+  <div class="test other"> </div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+  @keyframes move {
+
+    0% {
+      background-position: 0 0;
+
+    }
+
+    6% {
+      background-position: -32px 0;
+
+    }
+
+    12% {
+      background-position: -64px 0;
+    }
+
+    18% {
+      background-position: -96px 0;
+    }
+
+
+   
+    24% {
+      background-position: 0 -48px;
+    }
+
+    30% {
+      background-position: -32px -48px;
+    }
+
+    36% {
+      background-position: -64px -48px;
+    }
+
+    42% {
+      background-position: -96px -48px;
+    }
+
+
+
+    48% {
+      background-position: 0 -96px;
+    }
+
+    54% {
+      background-position: -32px -96px;
+
+    }
+
+    60% {
+      background-position: -64px -96px;
+
+    }
+
+    66% {
+      background-position: -96px -96px;
+
+    }
+
+
+    72% {
+      background-position: 0 -144px;
+    }
+
+    78% {
+      background-position: -32px -144px;
+
+    }
+
+    84% {
+      background-position: -64px -144px;
+
+    }
+
+    90% {
+      background-position: -96px -144px;
+
+    } 
+
+
+  }

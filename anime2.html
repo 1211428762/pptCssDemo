@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .anime {
+    width: 300px;
+    height: 300px;
+    background: url(./img/man.png);
+    animation: open 1s infinite forwards steps(19);
+  }
+
+  .anime:hover {
+    animation-play-state: paused;
+    /* running */
+  }
+
+  @keyframes open {
+    100% {
+      background-position: -5700px 0;
+    }
+  }
+</style>
+
+<body>
+  <div class="anime">
+
+  </div>
+</body>
+
+</html>

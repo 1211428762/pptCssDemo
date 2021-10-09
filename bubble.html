@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: lavenderblush;
+    }
+
+    @keyframes bubble {
+
+      0%,
+      50%,
+      100% {
+        -webkit-transform: scale(1);
+      }
+
+      25% {
+        -webkit-transform: scale(0.9, 1.1);
+      }
+
+      75% {
+        -webkit-transform: scale(1.1, 0.9);
+      }
+
+    }
+
+    .bubble {
+      width: 100px;
+      animation: bubble infinite ease-out 2s alternate;
+      height: 100px;
+      box-shadow: inset -30px -30px 75px lavenderblush, inset 0px 0px 5px rgba(0, 0, 0, .3), inset 0px 0px 55px rgba(255, 255, 255, .5), inset -3px -3px 5px rgba(0, 0, 0, .3), 0 0 50px rgba(255, 255, 255, .75);
+      border-radius: 100px;
+      background: pink;
+      margin: 50px auto;
+    }
+
+    .bubble:before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 12px;
+      animation: bubble infinite ease-out 2s alternate;
+      left: 12px;
+      border-radius: 75px 25px;
+      box-shadow: inset 10px 10px 50px rgba(255, 255, 255, .6);
+    }
+
+    .bubble:after {
+      content: "";
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      border-radius: 95px;
+      left: 5px;
+      top: 5px;
+      box-shadow: inset 0px -5px 5px rgba(0, 0, 0, .05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bubble"></div>
+</body>
+
+</html>
