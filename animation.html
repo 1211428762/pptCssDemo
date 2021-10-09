@@ -15,7 +15,7 @@
 
   .menu {
     display: flex;
-    width: 160px;
+    width: 120px;
     flex-flow: wrap;
     position: fixed;
     right: 50px;
@@ -25,19 +25,57 @@
   .menu>div {
     width: 32px;
     height: 48px;
-    background-image: var(--img);
+    background-image: var(--img, url(./img/asuna.png));
+  }
+
+  .menu>div:focus {
+    outline: none;
+  }
+
+  .menu>div:nth-of-type(1):focus~.role {
+    background-image: url(./img/asuna.png);
+  }
+
+  .menu>div:nth-of-type(2):focus~.role {
+    background-image: url(./img/kirito.png);
+  }
+
+  .menu>div:nth-of-type(3):focus~.role {
+    background-image: url(./img/kenan.png);
+  }
+
+  .menu>div:nth-of-type(4):focus~.role {
+    background-image: url(./img/lufei.png);
+  }
+
+  .menu>div:nth-of-type(5):focus~.role {
+    background-image: url(./img/daxiong.png);
+  }
+
+  .menu>div:nth-of-type(6):focus~.role {
+    background-image: url(./img/duola.png);
+  }
+
+  .menu>div:nth-of-type(7):focus~.role {
+    background-image: url(./img/panghu.png);
+  }
+
+  .menu>div:nth-of-type(8):focus~.role {
+    background-image: url(./img/bashen.png);
+  }
+
+  .menu>div:nth-of-type(9):focus~.role {
+    background-image: url(./img/miku.png);
   }
 
   .role {
-    width: 32px;
-    height: 48px;
-    position: absolute;
-    background-image: var(--img, url(./asuna.png));
+
+    position: fixed;
     animation: steps(4) 1s forwards infinite alternate;
     top: var(--top, 0);
     left: var(--left, 0);
     transition: all .5s linear;
-    transform: scale(2);
+    transform: scale(1.5);
     transform-origin: left top;
   }
 
@@ -56,8 +94,6 @@
   .down {
     animation-name: down;
   }
-
-
 
   @keyframes up {
 
@@ -114,7 +150,7 @@
     width: 100%;
     height: 70vh;
     background-size: cover;
-    background: url(./img/bg.png);
+    /* background: url(./img/bg.png); */
   }
 </style>
 
@@ -122,70 +158,53 @@
 <body>
 
   <div class="menu">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div tabindex="-1" style="--img:url(./img/asuna.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/kirito.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/kenan.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/lufei.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/daxiong.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/duola.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/panghu.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/bashen.png)"></div>
+    <div tabindex="-1" style="--img:url(./img/miku.png)"></div>
+    <div class="role" id="roleEle"></div>
   </div>
-  <section class="map">
-    <div class="role"></div>
-  </section>
-  <script>
 
+  <script>
+    // 设置角色图片,js实现
+    // let imgList = ["asuna", "kirito", "kenan", "jide", "lufei", "yinshi", "daxiong", "duola", "jingxiang", "panghu", "xiaofu", "papa", "mama", "bashen", "miku"]
+    // let menu = document.querySelectorAll(".menu>div")
+    // Array.from(menu, (role, index) => {
+    //   role.style.setProperty(`--img`, `url(./img/${imgList[index]}.png)`)
+    //     // 角色点击，替换当前角色
+    //     role.onclick = () => roleEle.style.setProperty(`--img`, `url(./img/${imgList[index]}.png)`)
+    // })
     let [up, left] = [0, 0]
     let speed = 50
-    let imgList = ["asuna", "kirito", "kenan", "jide", "lufei", "yinshi", "daxiong", "duola", "jingxiang", "panghu", "xiaofu", "papa", "mama", "bashen", "miku"]
-    let menu = document.querySelectorAll(".menu>div")
-    let ele = document.getElementsByClassName("role")[0]
-    // 设置角色图片
-    Array.from(menu, (role, index) => {
-      role.style.setProperty(`--img`, `url(./img/${imgList[index]}.png)`)
-      // 角色点击，替换当前角色
-      role.onclick = () => ele.style.setProperty(`--img`, `url(./img/${imgList[index]}.png)`)
-    })
-    // 清空角色当前移动指令
-    function clear() {
-      ele.className = ele.className.replace(/left|up|right|down/g, "")
-    }
-    function setAttr(dir, val) {
-      ele.style.setProperty(`--${dir}`, `${val}px`)
-    }
-
-    document.onkeydown = grabEvent
-    function grabEvent() {
+    document.onkeydown = function () {
       let keycode = event.which || event.keyCode;
-      clear()
+      // 清空角色当前移动指令
+      roleEle.className = roleEle.className.replace(/left|up|right|down/g, "")
       switch (keycode) {
         case 37://left功能；
-          ele.classList.add("left");
-          setAttr("left", left -= speed)
+          roleEle.classList.add("left");
+          roleEle.style.setProperty("--left", `${left -= speed}px`)
           break
         case 38://up
-          ele.classList.add("up");
-          setAttr("top", up -= speed)
+          roleEle.classList.add("up");
+          roleEle.style.setProperty("--top", `${up -= speed}px`)
           break
         case 39://right
-          ele.classList.add("right");
-          setAttr("left", left += speed)
+          roleEle.classList.add("right");
+          roleEle.style.setProperty("--left", `${left += speed}px`)
           break
         case 40://down
-          ele.classList.add("down");
-          setAttr("top", up += speed)
+          roleEle.classList.add("down");
+          roleEle.style.setProperty("--top", `${up += speed}px`)
           break
       }
-
     }
+
 
   </script>
 </body>

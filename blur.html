@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  section {
+    display: flex;
+    flex-flow: wrap;
+    width: 280px;
+    height: 180px;
+  }
+
+  .rainbow {
+    width: 140px;
+    height: 90px;
+    background: url(./img/rainbow.png) no-repeat;
+    transition: all 1s;
+    filter: blur(10px);
+  }
+
+  .rainbow:hover {
+    filter: blur(0);
+  }
+
+  .rainbow:nth-of-type(1) {
+    background-position: 0 0;
+  }
+
+  .rainbow:nth-of-type(2) {
+    background-position: -140px 0;
+  }
+
+  .rainbow:nth-of-type(3) {
+    background-position: 0 -90px;
+  }
+
+  .rainbow:nth-of-type(4) {
+    background-position: -140px -90px;
+  }
+</style>
+
+<body>
+  <section>
+    <div class="rainbow"> </div>
+    <div class="rainbow"> </div>
+    <div class="rainbow"> </div>
+    <div class="rainbow"> </div>
+  </section>
+
+
+</body>
+
+</html>
