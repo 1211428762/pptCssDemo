@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(30deg, deepskyblue, plum);
+    text-align: center;
+    line-height: 100px;
+    margin: 10px;
+  }
+
+  .transition {
+    transition: none;
+  }
+
+  .transition:hover {
+    transition: all 1s;
+    transform: translateX(100px);
+  }
+
+  @keyframes move {
+    100% {
+      transform: translateX(100px);
+    }
+  }
+
+  .animation:hover {
+    animation: move 1s forwards;
+  }
+</style>
+
+<body>
+  <div class="transition">
+    transition
+  </div>
+  <div class="animation">animation</div>
+</body>
+
+</html>

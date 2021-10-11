@@ -14,21 +14,18 @@
 
   .focus {
     width: 100px;
-    height: 100px;
+    height: 140px;
     margin: 10px 20px;
-    background-color: violet;
-    transition: all .4s;
-    border-radius: 10px;
+    background: url("./img/pokemon.jpg");
+    transition: all .5s;
   }
 
   .focus:focus {
-    background-color: deepskyblue;
-    transform: skew(30deg);
+    background-position: -100px 0;
   }
 
   .focus:active {
-    background-color: lightblue;
-    transform: rotate(360deg);
+    background-position: -200px 0;
   }
 
   .unfold-wrap {
@@ -41,7 +38,6 @@
     text-align: center;
     color: white;
     display: flex;
-
   }
 
   .unfold {
@@ -64,7 +60,6 @@
   .unfold:focus+.content {
     margin-left: 0;
   }
-
 
   .content {
     margin-left: -100px;

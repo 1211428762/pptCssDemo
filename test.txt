@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-dev1 内容
-master 内容
-=======
-master 内容
->>>>>>> e3341ca ([master] 内容)

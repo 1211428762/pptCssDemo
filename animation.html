@@ -69,7 +69,6 @@
   }
 
   .role {
-
     position: fixed;
     animation: steps(4) 1s forwards infinite alternate;
     top: var(--top, 0);
@@ -118,7 +117,6 @@
     50% {
       background-position: -128px -48px;
     }
-
   }
 
   @keyframes right {
@@ -180,7 +178,7 @@
     //     role.onclick = () => roleEle.style.setProperty(`--img`, `url(./img/${imgList[index]}.png)`)
     // })
     let [up, left] = [0, 0]
-    let speed = 50
+    let speed = 100
     document.onkeydown = function () {
       let keycode = event.which || event.keyCode;
       // 清空角色当前移动指令
