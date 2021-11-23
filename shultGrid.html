@@ -17,9 +17,23 @@
     }
 
     #wrap {
-      display: flex;
+      display: inline-flex;
       width: 260px;
       height: 260px;
+      flex-flow: wrap;
+    }
+
+    #wrap2 {
+      display: inline-flex;
+      width: 210px;
+      height: 210px;
+      flex-flow: wrap;
+    }
+
+    #wrap3 {
+      display: inline-flex;
+      width: 160px;
+      height: 160px;
       flex-flow: wrap;
     }
   </style>
@@ -28,21 +42,30 @@
 <body>
 
   <section id="wrap"></section>
+  <section id="wrap2"></section>
+  <section id="wrap3"></section>
   <button id="btn">refresh</button>
+
   <script>
-    function refresh() {
+    function refresh(length = 25, obj) {
       let [arr, i, dom] = [[], 0, ""]
-      while (i < 25) {
+      while (i < length) {
         i++
         arr.push(i)
       }
       arr.sort(() => Math.random() - 0.5).forEach(cur => {
         dom += `<div class='num'>${cur}</div>`
       })
-      wrap.innerHTML = dom
+      obj.innerHTML = dom
     }
-    refresh()
-    btn.onclick = refresh
+    refresh(25, wrap)
+    refresh(16, wrap2)
+    refresh(9, wrap3)
+    btn.onclick = () => {
+      refresh(25, wrap)
+      refresh(16, wrap2)
+      refresh(9, wrap3)
+    }
   </script>
 </body>
 
