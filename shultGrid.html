@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .num {
+      width: 50px;
+      height: 50px;
+      background-color: #bdddc3;
+      line-height: 50px;
+      text-align: center;
+      border: 1px white solid;
+    }
+
+    #wrap {
+      display: flex;
+      width: 260px;
+      height: 260px;
+      flex-flow: wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section id="wrap"></section>
+  <button id="btn">refresh</button>
+  <script>
+    function refresh() {
+      let [arr, i, dom] = [[], 0, ""]
+      while (i < 25) {
+        i++
+        arr.push(i)
+      }
+      arr.sort(() => Math.random() - 0.5).forEach(cur => {
+        dom += `<div class='num'>${cur}</div>`
+      })
+      wrap.innerHTML = dom
+    }
+    refresh()
+    btn.onclick = refresh
+  </script>
+</body>
+
+</html>
