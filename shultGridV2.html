@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .num {
+      width: 50px;
+      height: 50px;
+      background-color: #bdddc3;
+      line-height: 50px;
+      text-align: center;
+      border: 1px white solid;
+    }
+
+
+    section {
+      display: inline-flex;
+
+      flex-flow: wrap;
+    }
+
+    .btn-area {
+      text-align: center;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="btn-area">
+    <button id="refresh">refresh</button>
+    <button id="add">new Shult</button>
+    <button id="reset">reset</button>
+  </div>
+
+
+  <div id="box">
+  </div>
+  <script>
+    const createArr = (num) => Array(num).fill(1).map((c, i) => i + 1)
+    const grids = document.getElementsByClassName("grid")
+    let boxNum = 3
+    refresh.onclick = () => {
+      Array.from(grids, cur => {
+        let dom = ''
+        createArr(cur.childNodes.length).sort(() => Math.random() - 0.5).forEach(cur => {
+          dom += `<div class='num'>${cur}</div>`
+        })
+        cur.innerHTML = dom
+      });
+    }
+    add.onclick = () => {
+      let res = boxNum++
+      const section = (c, n) => `<section class='grid' style='width:${n * 50}px'>${c}</section>`
+      box.innerHTML += section(createArr(Math.pow(res, 2)).map(c => `<div class='num'>${c}</div>`).sort(() => Math.random() - 0.5).join(""), res + 1)
+    }
+    reset.onclick = () => {
+      for (let index = 0; index < grids.length; index++) {
+        const element = grids[index];
+        if (index > 2) {
+          element.remove()
+          index--
+        }
+      }
+    }
+    add.onclick();
+    add.onclick();
+    add.onclick()
+  </script>
+</body>
+
+</html>
