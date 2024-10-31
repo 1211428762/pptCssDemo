@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes moveback {
+        0% {
+          stroke-dashoffset: 30;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes move {
+        /* stroke-dashoffset 要求是相减是等于  stroke-dashoffset 的和 */
+        0% {
+          // stroke-dasharray: 10, 10;
+          stroke-dashoffset: 0;
+        }
+        100% {
+          // stroke-dasharray: 10, 10;
+          stroke-dashoffset: -30;
+        }
+      }
+      .g-svg {
+        position: absolute;
+      }
+
+      .g-dashed-line {
+        // stroke-dasharray: 10, 10;
+        // stroke-dashoffset: 44;
+        animation: moveback 0.5s infinite linear;
+        // animation: movetwo 2.4s infinite linear;
+      }
+      .charge {
+        animation: move 0.5s infinite linear;
+      }
+      .disCharge {
+        animation: moveback 0.5s infinite linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="g-svg" :style="`left: 1602rem; top: 352.5rem;`">
+      <svg
+        width="204"
+        height="557"
+        viewBox="0 0 204 557"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M117 4.5L199.018 20.8048C199.56 20.9125 199.912 21.4398 199.803 21.9819L93.6941 552.03C93.5866 552.568 93.0667 552.918 92.5283 552.817L6 536.5"
+          stroke="#758D83"
+          stroke-width="6"
+          stroke-linecap="round"
+        />
+        <g filter="url(#filter0_d_982_6)">
+          <path
+            class="g-dashed-line"
+            d="M115 4L199.02 20.804C199.561 20.9123 199.913 21.4387 199.805 21.98L94.1945 552.024C94.0869 552.564 93.5633 552.915 93.0229 552.81L4 535.5"
+            stroke="#64D38D"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-dasharray="10 20"
+          />
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>
